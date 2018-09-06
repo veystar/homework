@@ -42,14 +42,33 @@ function arrayDiff(array $array1, array $array2)
 
 // 3) arraySort
 
-function arraySort(array $arr)
+<?php
+function arraySort($array)
 {
-  function getMin($arr)
-  {
-    $min = $arr[0];
-    foreach ($arr as $value) {
-      if ($value < $max)
-        $min = $value;
-      }
-    return $min;
+    function arrayLength($array)
+    {
+        $count = 0;
+        foreach ($array as $value)
+        if ($value != NULL) $count++;
+        else break;
+        return $count;
+    }
+    for ($i = 0; $i < arrayLength($array)-1; $i++)
+    {
+        $min = $i;
+
+        for($k = $i+1; $k < arrayLength($array); $k++)
+        {
+            if ($array[$k] < $array[$min])
+            {
+                $min = $k;
+            }
+        }
+
+        $replace = $array[$i];
+        $array[$i] = $array[$min];
+        $array[$min] = $replace;
+    }
+
+    return $array;
 }
