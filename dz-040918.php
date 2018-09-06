@@ -6,7 +6,7 @@ function inArray($number, array $arr)
     foreach ($arr as $value) {
       if ($value == $number) {
         return TRUE;
-        break;
+
       }
     }
    return FALSE;
@@ -14,17 +14,15 @@ function inArray($number, array $arr)
 
 // 1) arraySum
 
-<?php
 function arraySum(array $arr)
   {
     $sum = 0;
-    foreach ($arr as $value) $sum += $value;
+    foreach ($arr as $value) { $sum += $value; }
     return $sum;
   }
 
 // 2) arrayDiff
 
-<?php
 function arrayDiff(array $array1, array $array2)
   {
     $diff[] = NULL;
@@ -42,22 +40,22 @@ function arrayDiff(array $array1, array $array2)
 
 // 3) arraySort
 
-<?php
 function arraySort($array)
 {
     function arrayLength($array)
     {
         $count = 0;
         foreach ($array as $value)
-        if ($value != NULL) $count++;
+        if ($value != NULL) { $count++; }
         else break;
         return $count;
     }
-    for ($i = 0; $i < arrayLength($array)-1; $i++)
+    $arrLength = arrayLength($array);
+    for ($i = 0; $i < arrLength-1; $i++)
     {
         $min = $i;
 
-        for($k = $i+1; $k < arrayLength($array); $k++)
+        for($k = $i+1; $k < $arrLength; $k++)
         {
             if ($array[$k] < $array[$min])
             {
