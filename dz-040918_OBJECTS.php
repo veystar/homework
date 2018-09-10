@@ -11,7 +11,7 @@ abstract class ArrayProcessor
 		$this->count = count($this->array);
 	}
 
-	abstract protected function calcArray();
+	abstract protected function processArrayData();
 }
 
 
@@ -26,7 +26,7 @@ class InArray extends ArrayProcessor
 		$this->number = $num;
 	}
 
-	public function calcArray()
+	public function processArrayData()
 	{
 		foreach ($this->array as $value)
 			{
@@ -47,7 +47,7 @@ class ArraySum extends ArrayProcessor
 		$this->array = $inputArray;
 	}
 
-	public function calcArray()
+	public function processArrayData()
 		{
 			$sum = 0;
 			foreach ($this->array as $value) { $sum += $value; }
@@ -75,7 +75,7 @@ class ArrayDiff extends ArrayProcessor
 			return FALSE;
 		}
 
-	public function calcArray()
+	public function processArrayData()
 		{
 			$diff[] = NULL;
 			$i = 0;
@@ -100,7 +100,7 @@ class SortArray extends ArrayProcessor
 		$this->array = $inputArray;
 		$this->count = count($this->array);
 	}
-	public function calcArray()
+	public function processArrayData()
 {
     for ($i = 0; $i < $this->count; $i++)
     {
@@ -131,16 +131,16 @@ $arr2 = [5, 25, 33, 40, 17, 4, 23];
 
 $arrObj = new InArray($num, $arr);
 
-var_dump($arrObj->calcArray());
+var_dump($arrObj->processArrayData());
 
 $sumObj = new ArraySum($arr);
 
-var_dump($sumObj->calcArray());
+var_dump($sumObj->processArrayData());
 
 $diffObj = new ArrayDiff($arr, $arr2);
 
-var_dump($diffObj->calcArray());
+var_dump($diffObj->processArrayData());
 
 $sortObj = new SortArray($arr);
 
-var_dump($sortObj->calcArray());
+var_dump($sortObj->processArrayData());
