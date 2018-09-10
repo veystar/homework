@@ -55,7 +55,7 @@ class ArraySum extends ArrayProcessor
 		}
 }
 
-class ArrayDiff extends InArray
+class ArrayDiff extends ArrayProcessor
 {
 	public $array1;
 	public $array2;
@@ -65,13 +65,23 @@ class ArrayDiff extends InArray
 			$this->array1 = $inputArray1;
 			$this->array2 = $inputArray2;
 		}
+
+		public function inArray($number, $arr)
+		{
+			foreach ($arr as $value)
+				{
+			if ($value == $number) { return TRUE; }
+				}
+			return FALSE;
+		}
+
 	public function calcArray()
 		{
 			$diff[] = NULL;
 			$i = 0;
 			foreach ($this->array1 as $value)
 			{
-				if (!(parent::calcArray($value, $this->array2)) and !(parent::calcArray($value, $diff)))
+				if ((!$this->inArray($value, $this->array2)) and (!$this->inArray($value, $diff)))
 					{
 						$diff[$i] = $value;
 						$i++;
@@ -121,16 +131,16 @@ $arr2 = [5, 25, 33, 40, 17, 4, 23];
 
 $arrObj = new InArray($num, $arr);
 
-var_dump($arrObj->calcArray($num, $arr));
+var_dump($arrObj->calcArray());
 
 $sumObj = new ArraySum($arr);
 
-var_dump($sumObj->calcArray($arr));
+var_dump($sumObj->calcArray());
 
 $diffObj = new ArrayDiff($arr, $arr2);
 
-var_dump($diffObj->calcArray($arr));
+var_dump($diffObj->calcArray());
 
 $sortObj = new SortArray($arr);
 
-var_dump($sortObj->calcArray($arr));
+var_dump($sortObj->calcArray());
