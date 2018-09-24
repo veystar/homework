@@ -15,7 +15,6 @@ class Router
 		$controller = new MainController();
 		
 		$controller->$actionName();
-		var_dump($routes);
-		var_dump($_SERVER['REQUEST_URI']);
+		
 	}
 }

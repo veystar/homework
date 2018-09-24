@@ -1,3 +1,3 @@
 <?php
-var_dump($title);
-var_dump($content);
+//var_dump($title);
+print_r($content);
