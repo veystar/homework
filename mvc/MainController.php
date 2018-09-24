@@ -6,7 +6,7 @@ class MainController extends AbstractController
 	public function index()
 	{
 		$model = $this->getModel(Model::class);
-		$data = $model->getMain();
+		$data = $model->getIndex();
 		$this->render('view/base_template.php', $data);
 	}
 

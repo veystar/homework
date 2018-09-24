@@ -39,7 +39,7 @@
 
 	<div class="pattern_bg">
     
-    	  <?php echo $content ?> 
+    	  <?php include_once $content.'.php' ?> 
         
 	</div>
 	<div id="main_content">

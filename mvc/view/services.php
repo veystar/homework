@@ -1,7 +1,7 @@
 <div class="pattern_box">
             <div class="pattern_box_icon"><img src="../images/icon1.png" alt="" title="" width="70" height="112" /></div>
             <div class="pattern_content">
-            <h1>Contact <span class="blue">Us</span></h1>
+            <h1>Relaxive <span class="blue">Massage</span></h1>
             <p class="pat">
             Where are we?
             </p>
@@ -12,9 +12,9 @@
     	<div class="pattern_box">
             <div class="pattern_box_icon"><img src="../images/icon2.png" alt="" title="" width="70" height="112" /></div>
             <div class="pattern_content">
-            <h1>Social <span class="blue"> Networks</span></h1>
+            <h1>Traditional <span class="blue"> Curement</span></h1>
             <p class="pat">
-            Facebook, Telegram, VK, OK, Viber, Skype
+            Herbs, Solutions, Vodka, etc.
             </p>
             </div>
         </div>
