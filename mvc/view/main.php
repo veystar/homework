@@ -1,3 +1,5 @@
+<?php include_once "header.php" ?> 
+
 <div class="pattern_box">
         <div class="pattern_box_icon"><img src="../images/icon1.png" alt="" title="" width="70" height="112" /></div>
         <div class="pattern_content">
@@ -18,3 +20,5 @@
         </p>
         </div>
     </div>
+
+<?php include_once "footer.php" ?> 
