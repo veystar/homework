@@ -14,7 +14,8 @@ class Router
 		}
 		$controller = new MainController();
 		
-		$controller->$actionName();
+		if (method_exists($controller, $actionName)) { $controller->$actionName(); }
+		else $controller->page404();
 		
 	}
 }

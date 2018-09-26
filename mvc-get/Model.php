@@ -25,4 +25,10 @@ class Model
 		return ['title' => 'Services',
 			'content' => 'services'];
 	}
+	
+	public function getPage404()
+	{
+		return ['title' => 'Page not found!',
+			'content' => '404'];
+	}
 }

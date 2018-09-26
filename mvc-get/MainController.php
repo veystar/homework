@@ -30,4 +30,11 @@ class MainController extends AbstractController
 		$data = $model->getServices();
 		$this->render('view/services.php', $data);
 	}
+	
+	public function page404()
+	{
+		$model = $this->getModel(Model::class);
+		$data = $model->getPage404();
+		$this->render('view/404.php', $data);
+	}
 }
