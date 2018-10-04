@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}This is {{ title }} page!{% endblock %}
+
+{% block content %}
+
+    <div class="pattern_box">
+        <div class="pattern_box_icon"><img src="{{ asset('/asset/images/icon1.png') }}" alt="" title="" width="70" height="112" /></div>
+        <div class="pattern_content">
+        <h1>My <span class="blue">History</span></h1>
+        <p class="pat">
+        How it goes?
+        </p>
+        </div>
+    </div>
+        
+        
+    <div class="pattern_box">
+        <div class="pattern_box_icon"><img src="/asset/images/icon2.png" alt="" title="" width="70" height="112" /></div>
+        <div class="pattern_content">
+        <h1>Search <span class="blue"> Mission</span></h1>
+        <p class="pat">
+        What is this for?
+        </p>
+        </div>
+    </div>
+
+{% endblock %}
