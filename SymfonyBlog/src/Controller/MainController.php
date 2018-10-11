@@ -13,7 +13,7 @@ class MainController extends AbstractController
     public function aboutUs()
     {
         return $this->render('main/about.html.twig', [
-            'controller_name' => 'MainController',
+            'title' => 'About Us',
         ]);
     }
     /**
@@ -22,7 +22,7 @@ class MainController extends AbstractController
     public function contactUs()
     {
         return $this->render('main/contact.html.twig', [
-            'controller_name' => 'MainController',
+            'title' => 'Contact Us',
         ]);
     }
     /**
@@ -31,7 +31,7 @@ class MainController extends AbstractController
     public function portfolio()
     {
         return $this->render('main/portfolio.html.twig', [
-            'controller_name' => 'MainController',
+            'title' => 'Portfolio',
         ]);
     }
 }

@@ -12,18 +12,10 @@ class BlogController extends AbstractController
      */
     public function index()
     {
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('blog/index.html.twig', [
+            'title' => 'Home page',
         ]);
     }
     
-    /**
-     * @Route("/", name="blog")
-     */
-    public function index()
-    {
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
-    }
+    
 }

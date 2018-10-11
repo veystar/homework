@@ -1,20 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block pirobox %}{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block content %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/blog/index.html.twig'|file_link(0) }}">templates/blog/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div id="templatemo_right_column">
+    
+    	<div id="featured_project">
+            <div id="slider">
+                <ul id="sliderContent">
+                    <li class="sliderImage">
+                        <a href=""><img src="{{ asset('/images/slider/1.jpg') }}" alt="1" /></a>
+                        <span class="top"><strong>Project 1</strong><br />Suspendisse turpis arcu, dignissim ac laoreet a, condimentum in massa.</span>
+                    </li>
+                    <li class="sliderImage">
+                        <a href=""><img src="{{ asset('/images/slider/2.jpg') }}" alt="2" /></a>
+                        <span class="bottom"><strong>Project 2</strong><br />uisque eget elit quis augue pharetra feugiat.</span>
+                    </li>
+                    <li class="sliderImage">
+                        <img src="{{ asset('/images/slider/3.jpg') }}" alt="3" />
+                        <span class="left"><strong>Project 3</strong><br />Sed et quam vitae ipsum vulputate varius vitae semper nunc.</span>
+                    </li>
+                    <li class="sliderImage">
+                        <img src="{{ asset('/images/slider/4.jpg') }}" alt="4" />
+                        <span class="right"><strong>Project 4</strong><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    </li>
+                    <li class="clear sliderImage"></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="templatemo_main">
+            
+        
+		</div>
+    
+  <div class="cleaner"></div>
+  </div> 
+    <!-- end of templatemo_main -->
+
 {% endblock %}
+
+
