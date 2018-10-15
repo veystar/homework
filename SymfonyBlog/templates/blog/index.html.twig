@@ -39,7 +39,7 @@
                 <div class="post_section">
                     <span class="comment"><a href="blog_post.html">128</a></span>
                     <h2><a href = "{{ path ('article', {'id': article.id }) }}"> {{ article.title }} </a></h2>
-                    Created: December 28, 2018 | <strong>Author:</strong> John | <strong>Category:</strong> category
+                    Created: {{ article.createdAt | date("m/d/Y") }} | <strong>Author:</strong> John | <strong>Category:</strong> {{ article.category.title }}
                 </div>
             {% endfor %}
             

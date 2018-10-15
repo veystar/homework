@@ -6,19 +6,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
 use App\Entity\Article;
+use App\Service\ViewAllArticles;
 
 class BlogController extends AbstractController
 {
     /**
      * @Route("/", name="blog")
      */
-    public function index(ArticleRepository $articleRepository)
+    public function index(ArticleRepository $articleRepository, ViewAllArticles $myService)
     {
 		//$repo = $this->getDoctrine()->getRepository(Article::class); // possible method of obtaining articles from repo
 		//dump($repo);
 		
-        $articles = $articleRepository->findAll(); //obtain ALL articles from repo
-        dump($articles);
+        //$articles = $articleRepository->findAll(); //obtain ALL articles from repo
+
+        $articles = $myService->getAllArticles();
+
+        //dump ($myService->getAllArticles()); die;
 
         return $this->render('blog/index.html.twig', compact('articles'));
     }
