@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %} Main Page {% endblock %}
 
 {% block pirobox %}{% endblock %}
 
@@ -32,10 +32,18 @@
             </div>
         </div>
         
-        <div id="templatemo_main">
-            
         
-		</div>
+
+        <div id="templatemo_main">
+            {% for article in articles %}
+                <div class="post_section">
+                    <span class="comment"><a href="blog_post.html">128</a></span>
+                    <h2><a href = "{{ path ('article', {'id': article.id }) }}"> {{ article.title }} </a></h2>
+                    Created: December 28, 2018 | <strong>Author:</strong> John | <strong>Category:</strong> category
+                </div>
+            {% endfor %}
+            
+        </div>
     
   <div class="cleaner"></div>
   </div> 

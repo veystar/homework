@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ article.title }} {% endblock %}
+
+{% block pirobox %}{% endblock %}
+
+{% block content %}
+
+<div id="templatemo_main">
+    <div class="post_section">
+        <span class="comment"><a href="blog_post.html">128</a></span>
+       <h2><a href="{{ article.id }}"> {{ article.title }} </a></h2>
+        <p> {{ article.content }} </p>
+        
+
+    </div>
+</div>
+
+<div class="cleaner"></div>
+  </div> 
+    <!-- end of templatemo_main -->
+
+{% endblock %}

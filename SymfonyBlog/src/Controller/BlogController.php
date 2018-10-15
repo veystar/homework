@@ -4,18 +4,35 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ArticleRepository;
+use App\Entity\Article;
 
 class BlogController extends AbstractController
 {
     /**
      * @Route("/", name="blog")
      */
-    public function index()
+    public function index(ArticleRepository $articleRepository)
     {
-        return $this->render('blog/index.html.twig', [
-            'title' => 'Home page',
-        ]);
+		//$repo = $this->getDoctrine()->getRepository(Article::class); // possible method of obtaining articles from repo
+		//dump($repo);
+		
+        $articles = $articleRepository->findAll(); //obtain ALL articles from repo
+        dump($articles);
+
+        return $this->render('blog/index.html.twig', compact('articles'));
     }
     
+    /**
+     * @Route("/article/{id}", name="article")
+     */
+    public function article($id, ArticleRepository $articleRepository)
+    {
+		
+        $article = $articleRepository->find($id); //obtain article from repo
+        dump($article);
+
+        return $this->render('blog/article.html.twig', compact('article'));
+    }
     
 }
