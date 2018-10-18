@@ -24,7 +24,18 @@ class Category
 	/**
      * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
      */
-	private $articles;
+    private $articles;
+    
+    public function __construct()
+        {
+            $this->articles = new ArrayCollection();
+        }
+
+    public function __toString()
+        {
+            return $this->title;
+        }
+
     public function getId(): ?int
     {
         return $this->id;

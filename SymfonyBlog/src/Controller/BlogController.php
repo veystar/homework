@@ -4,9 +4,13 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use App\Entity\Article;
 use App\Service\ViewAllArticles;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class BlogController extends AbstractController
 {
@@ -37,6 +41,63 @@ class BlogController extends AbstractController
         dump($article);
 
         return $this->render('blog/article.html.twig', compact('article'));
+    }
+
+    /**
+     * @Route("/new", name="article_new", methods="GET|POST")
+     */
+    public function new(Request $request): Response
+    {
+        $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirectToRoute('blog');
+        }
+
+        return $this->render('blog/new.html.twig', [
+            'article' => $article,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/article/{id}/edit", name="article_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Article $article): Response
+    {
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('article_edit', ['id' => $article->getId()]);
+        }
+
+        return $this->render('blog/edit.html.twig', [
+            'article' => $article,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="article_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Article $article): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($article);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('blog');
     }
     
 }
