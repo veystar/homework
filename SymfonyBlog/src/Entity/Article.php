@@ -41,6 +41,11 @@ class Article
      */
     private $author;
 
+    public function __toString()
+        {
+            return $this->title ? $this->title : 'New article'; 
+        }
+
     public function getId(): ?int
     {
         return $this->id;
