@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Add comment to: {{ article.title }} {% endblock %}
+
+{% block pirobox %}{% endblock %}
+
+{% block content %}
+
+<div id="templatemo_main">
+    <div class="post_section">
+        <form action="{{ path('article_create_comment', {'article': article.id}) }}" method = "post">
+            <textarea name="text"></textarea>
+            <button type="submit">Comment</button>
+        </form>
+
+    </div>
+</div>
+
+<div class="cleaner"></div>
+  </div> 
+    <!-- end of templatemo_main -->
+
+{% endblock %}
