@@ -13,7 +13,7 @@ class ArticleAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('title', TextType::class)
-            ->add('author')
+            //->add('author')
             ->add('category')
             ->add('content')
             ->add('createdAt');
@@ -24,7 +24,7 @@ class ArticleAdmin extends AbstractAdmin
         $datagridMapper
             ->add('title')
             ->add('category')
-            ->add('author')
+            //->add('author')
             ->add('createdAt');
     }
 
@@ -32,10 +32,9 @@ class ArticleAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('id')    
-            //->add('title', null, ['editable' => true])
             ->addIdentifier('title')
             ->addIdentifier('category')
-            ->addIdentifier('author')
+            //->addIdentifier('author')
             ->addIdentifier('createdAt')
             ->add('_action', null, array(
                 'actions' => array(

@@ -116,7 +116,7 @@ class Article
         return $this->author;
     }
 
-    public function setAuthor(string $author): self
+    public function setAuthor($author): self
     {
         $this->author = $author;
 

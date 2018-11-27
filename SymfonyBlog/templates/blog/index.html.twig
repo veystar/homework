@@ -37,7 +37,7 @@
         <div id="templatemo_main">
             {% for article in articles %}
                 <div class="post_section">
-                    <span class="comment"><a href="blog_post.html">128</a></span>
+                    <span class="comment"><a href="{{ path ('comment', {'id': article.id }) }}">Comment</a></span>
                     <h2><a href = "{{ path ('article', {'id': article.id }) }}"> {{ article.title }} </a></h2>
                     Created: {{ article.createdAt | date("m/d/Y") }} | <strong>Author:</strong> {{ article.author }} | <strong>Category:</strong> {{ article.category.title }}
                 </div>

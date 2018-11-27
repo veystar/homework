@@ -42,6 +42,11 @@ class Comment
         {
             $this->createdAt = new \DateTime();
         }
+    
+    public function __toString()
+        {
+            return $this->author ? $this->author : 'guest'; 
+        }
 
     public function getId(): ?int
     {
@@ -53,7 +58,7 @@ class Comment
         return $this->text;
     }
 
-    public function setText(string $text): self
+    public function setText($text): self
     {
         $this->text = $text;
 

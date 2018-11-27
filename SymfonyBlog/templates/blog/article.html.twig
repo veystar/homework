@@ -8,16 +8,35 @@
 
 <div id="templatemo_main">
     <div class="post_section">
-        <span class="comment"><a href="blog_post.html">128</a></span>
+        <span class="comment"><a href="{{ path ('comment', {'id': article.id }) }}">Comment</a></span>
        <h2><a href="{{ article.id }}"> {{ article.title }} </a></h2>
         <p> {{ article.content | raw}} </p>
         <p><a href="/admin">Edit this article</a></p>
 
     </div>
+<div class="comment_tab">
+           	    Comments           </div>
+<div id="comment_section">                         
+        <ol class="comments">
+        {% for comment in article.comments %}            
+            <div class="comment_box commentbox1">                                
+                <div class="gravatar">
+                    <img src="{{ asset('/images/avator.png') }}" alt="avatar" />
+                </div>
+                <div class="comment_text">
+                    <div class="comment_author">{{ comment.author.username }}<span class="date">{{ comment.createdAt | date("m/d/Y") }}</span></div>
+                        <p>{{ comment.text | raw}}</p>
+                        <div class="reply"><a href="{{ path ('comment', {'id': article.id }) }}">Reply</a></div>
+                </div>
+            </div>
+        {% endfor %}                       
+        </ol>                                           
 </div>
 
+
 <div class="cleaner"></div>
-  </div> 
+
+</div> 
     <!-- end of templatemo_main -->
 
 {% endblock %}
